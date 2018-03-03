@@ -8,8 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		68EDE3B95511B67553ECB9E4 /* Pods_MDBSocialsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 082485A8970F848EB6160699 /* Pods_MDBSocialsUITests.framework */; };
-		6C4AB5E2204A6D2500F38DE1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6C4AB5E1204A6D2500F38DE1 /* GoogleService-Info.plist */; };
 		6C4AB5E4204A701900F38DE1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4AB5E3204A701900F38DE1 /* Constants.swift */; };
+		6C5AAFFD204B5F2F001CFBD3 /* NewSocialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5AAFFC204B5F2F001CFBD3 /* NewSocialView.swift */; };
+		6C5AAFFF204B5F51001CFBD3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6C5AAFFE204B5F50001CFBD3 /* GoogleService-Info.plist */; };
+		6C5AB002204B61BD001CFBD3 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5AB001204B61BD001CFBD3 /* DetailView.swift */; };
+		6C5AB005204B63BE001CFBD3 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5AB004204B63BE001CFBD3 /* SignupView.swift */; };
+		6C5AB008204B655A001CFBD3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5AB007204B655A001CFBD3 /* LoginView.swift */; };
 		6C6E729E204A1D2E00244C59 /* InterestedUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6E729D204A1D2E00244C59 /* InterestedUsersViewController.swift */; };
 		6CDE320020472EA400A74050 /* YellowFloatingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDE31FF20472EA400A74050 /* YellowFloatingTextField.swift */; };
 		6CDEA378203BF48F002BA2DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDEA377203BF48F002BA2DC /* AppDelegate.swift */; };
@@ -55,8 +59,12 @@
 		153B2F77E7E1AB79A0DF00C1 /* Pods-MDBSocialsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MDBSocialsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MDBSocialsUITests/Pods-MDBSocialsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		296F0B948C7E09A3B17A364B /* Pods_MDBSocials.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MDBSocials.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C13E0E133DDDF7B4AC9A365 /* Pods-MDBSocials.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MDBSocials.release.xcconfig"; path = "Pods/Target Support Files/Pods-MDBSocials/Pods-MDBSocials.release.xcconfig"; sourceTree = "<group>"; };
-		6C4AB5E1204A6D2500F38DE1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6C4AB5E3204A701900F38DE1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		6C5AAFFC204B5F2F001CFBD3 /* NewSocialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSocialView.swift; sourceTree = "<group>"; };
+		6C5AAFFE204B5F50001CFBD3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6C5AB001204B61BD001CFBD3 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		6C5AB004204B63BE001CFBD3 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
+		6C5AB007204B655A001CFBD3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		6C6E729D204A1D2E00244C59 /* InterestedUsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestedUsersViewController.swift; sourceTree = "<group>"; };
 		6CDE31FF20472EA400A74050 /* YellowFloatingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowFloatingTextField.swift; sourceTree = "<group>"; };
 		6CDEA374203BF48F002BA2DC /* MDBSocials.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MDBSocials.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +135,38 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6C5AAFF9204B5CF5001CFBD3 /* NewSocialView */ = {
+			isa = PBXGroup;
+			children = (
+				6C5AAFFC204B5F2F001CFBD3 /* NewSocialView.swift */,
+			);
+			path = NewSocialView;
+			sourceTree = "<group>";
+		};
+		6C5AB000204B61B0001CFBD3 /* DetailView */ = {
+			isa = PBXGroup;
+			children = (
+				6C5AB001204B61BD001CFBD3 /* DetailView.swift */,
+			);
+			path = DetailView;
+			sourceTree = "<group>";
+		};
+		6C5AB003204B63AF001CFBD3 /* SignupView */ = {
+			isa = PBXGroup;
+			children = (
+				6C5AB004204B63BE001CFBD3 /* SignupView.swift */,
+			);
+			path = SignupView;
+			sourceTree = "<group>";
+		};
+		6C5AB006204B654A001CFBD3 /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+				6C5AB007204B655A001CFBD3 /* LoginView.swift */,
+			);
+			path = LoginView;
+			sourceTree = "<group>";
+		};
 		6C6E729C204A1D0F00244C59 /* InterestedUsersViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +178,10 @@
 		6CDE31FE20472E6200A74050 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6C5AB006204B654A001CFBD3 /* LoginView */,
+				6C5AB003204B63AF001CFBD3 /* SignupView */,
+				6C5AB000204B61B0001CFBD3 /* DetailView */,
+				6C5AAFF9204B5CF5001CFBD3 /* NewSocialView */,
 				6CDE31FF20472EA400A74050 /* YellowFloatingTextField.swift */,
 			);
 			path = Views;
@@ -178,7 +222,7 @@
 				6CDEA37E203BF48F002BA2DC /* Assets.xcassets */,
 				6CDEA380203BF48F002BA2DC /* LaunchScreen.storyboard */,
 				6CDEA383203BF48F002BA2DC /* Info.plist */,
-				6C4AB5E1204A6D2500F38DE1 /* GoogleService-Info.plist */,
+				6C5AAFFE204B5F50001CFBD3 /* GoogleService-Info.plist */,
 			);
 			path = MDBSocials;
 			sourceTree = "<group>";
@@ -412,7 +456,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6CDEA382203BF48F002BA2DC /* LaunchScreen.storyboard in Resources */,
-				6C4AB5E2204A6D2500F38DE1 /* GoogleService-Info.plist in Resources */,
+				6C5AAFFF204B5F51001CFBD3 /* GoogleService-Info.plist in Resources */,
 				6CDEA37F203BF48F002BA2DC /* Assets.xcassets in Resources */,
 				6CDEA37D203BF48F002BA2DC /* Main.storyboard in Resources */,
 			);
@@ -613,8 +657,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C5AB005204B63BE001CFBD3 /* SignupView.swift in Sources */,
 				6CDEA3B0203BF6E5002BA2DC /* SignupViewController.swift in Sources */,
 				6CDE320020472EA400A74050 /* YellowFloatingTextField.swift in Sources */,
+				6C5AB002204B61BD001CFBD3 /* DetailView.swift in Sources */,
 				6CDEA3BB203C0E38002BA2DC /* FeedTableViewCell.swift in Sources */,
 				6CDEA37A203BF48F002BA2DC /* LoginViewController.swift in Sources */,
 				6CE8383F2049D0DA0001EC9A /* LyftHelpter.swift in Sources */,
@@ -627,6 +673,8 @@
 				6CDEA3B8203BF949002BA2DC /* FirebaseAuthHelper.swift in Sources */,
 				6CDEA378203BF48F002BA2DC /* AppDelegate.swift in Sources */,
 				6CDEA3BF203D4F5D002BA2DC /* Post.swift in Sources */,
+				6C5AB008204B655A001CFBD3 /* LoginView.swift in Sources */,
+				6C5AAFFD204B5F2F001CFBD3 /* NewSocialView.swift in Sources */,
 				6CDEA3C1203E4179002BA2DC /* UserModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

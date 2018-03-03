@@ -29,7 +29,7 @@ class FeedTableViewCell: UITableViewCell {
     
     func setupBackgroundView(){
         background = UIView(frame: CGRect(x: 10, y: 10, width: contentView.frame.width - 20, height: contentView.frame.height - 20))
-        background.backgroundColor = Constants.MDBYellow
+        background.backgroundColor = .MDBYellow
         background.layer.cornerRadius = 10
         addSubview(background)
         setupActivityIndidicator()
