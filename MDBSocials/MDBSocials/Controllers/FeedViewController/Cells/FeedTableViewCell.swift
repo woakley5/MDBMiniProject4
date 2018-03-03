@@ -16,7 +16,7 @@ class FeedTableViewCell: UITableViewCell {
     var posterNameLabel: UILabel!
     var interestedLabel: UILabel!
     var activityIndicator: UIActivityIndicatorView!
-        
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -29,7 +29,7 @@ class FeedTableViewCell: UITableViewCell {
     
     func setupBackgroundView(){
         background = UIView(frame: CGRect(x: 10, y: 10, width: contentView.frame.width - 20, height: contentView.frame.height - 20))
-        background.backgroundColor = #colorLiteral(red: 0.9885228276, green: 0.8447954059, blue: 0.2268863916, alpha: 1)
+        background.backgroundColor = Constants.MDBYellow
         background.layer.cornerRadius = 10
         addSubview(background)
         setupActivityIndidicator()
@@ -71,7 +71,7 @@ class FeedTableViewCell: UITableViewCell {
         interestedLabel = UILabel(frame: CGRect(x: 160, y: background.frame.height - 50, width: background.frame.width - 140, height: 60))
         background.addSubview(interestedLabel)
     }
-
+    
     func startLoadingView() {
         activityIndicator.startAnimating()
     }
@@ -79,5 +79,5 @@ class FeedTableViewCell: UITableViewCell {
     func stopLoadingView() {
         activityIndicator.stopAnimating()
     }
-
 }
+

@@ -21,7 +21,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         self.navigationController?.navigationBar.isHidden = true
-        view.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+        view.backgroundColor = Constants.MDBBlue
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
         self.view.addGestureRecognizer(tapGesture)
@@ -67,7 +67,7 @@ class LoginViewController: UIViewController {
         logInButton.backgroundColor = .white
         logInButton.layer.cornerRadius = 10
         logInButton.addTarget(self, action: #selector(tappedLogin), for: .touchUpInside)
-        logInButton.setTitleColor(#colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1), for: .normal)
+        logInButton.setTitleColor(Constants.MDBBlue, for: .normal)
         view.addSubview(logInButton)
     }
     
@@ -77,7 +77,7 @@ class LoginViewController: UIViewController {
         signUpButton.backgroundColor = .white
         signUpButton.layer.cornerRadius = 10
         signUpButton.addTarget(self, action: #selector(tappedSignUp), for: .touchUpInside)
-        signUpButton.setTitleColor(#colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1), for: .normal)
+        signUpButton.setTitleColor(Constants.MDBBlue, for: .normal)
         view.addSubview(signUpButton)
     }
     

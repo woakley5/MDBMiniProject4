@@ -26,7 +26,7 @@ class SignupViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+        view.backgroundColor = Constants.MDBBlue
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
         self.view.addGestureRecognizer(tapGesture)
@@ -83,7 +83,7 @@ class SignupViewController: UIViewController {
         selectCameraImageButton.setTitle("Take Picture", for: .normal)
         selectCameraImageButton.backgroundColor = .white
         selectCameraImageButton.layer.cornerRadius = 10
-        selectCameraImageButton.setTitleColor(#colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1), for: .normal)
+        selectCameraImageButton.setTitleColor(Constants.MDBBlue, for: .normal)
         selectCameraImageButton.addTarget(self, action: #selector(selectPictureFromCamera), for: .touchUpInside)
         view.addSubview(selectCameraImageButton)
         
@@ -91,7 +91,7 @@ class SignupViewController: UIViewController {
         selectLibraryImageButton.setTitle("Select Picture", for: .normal)
         selectLibraryImageButton.layer.cornerRadius = 10
         selectLibraryImageButton.backgroundColor = .white
-        selectLibraryImageButton.setTitleColor(#colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1), for: .normal)
+        selectLibraryImageButton.setTitleColor(Constants.MDBBlue, for: .normal)
         selectLibraryImageButton.addTarget(self, action: #selector(selectPictureFromLibrary), for: .touchUpInside)
         view.addSubview(selectLibraryImageButton)
         
@@ -124,7 +124,7 @@ class SignupViewController: UIViewController {
         signUpButton.backgroundColor = .white
         signUpButton.layer.cornerRadius = 10
         signUpButton.addTarget(self, action: #selector(tappedCreateAccount), for: .touchUpInside)
-        signUpButton.setTitleColor(#colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1), for: .normal)
+        signUpButton.setTitleColor(Constants.MDBBlue, for: .normal)
         view.addSubview(signUpButton)
     }
     
@@ -134,7 +134,7 @@ class SignupViewController: UIViewController {
         backButton.backgroundColor = .white
         backButton.layer.cornerRadius = 10
         backButton.addTarget(self, action: #selector(tappedBackButton), for: .touchUpInside)
-        backButton.setTitleColor(#colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1), for: .normal)
+        backButton.setTitleColor(Constants.MDBBlue, for: .normal)
         view.addSubview(backButton)
     }
     
@@ -166,7 +166,6 @@ class SignupViewController: UIViewController {
     @objc func tappedBackButton(){
         self.navigationController?.popToRootViewController(animated: true)
     }
-    
 }
 
 extension SignupViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {

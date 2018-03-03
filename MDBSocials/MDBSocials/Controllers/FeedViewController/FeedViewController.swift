@@ -25,7 +25,7 @@ class FeedViewController: UIViewController {
     func setupNavigationBar(){
         self.navigationItem.title = "My Feed"
         self.navigationController?.navigationBar.tintColor = .white
-        self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+        self.navigationController?.navigationBar.barTintColor = Constants.MDBBlue
         let textAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         
