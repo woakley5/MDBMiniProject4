@@ -58,6 +58,8 @@ class FeedViewController: UIViewController {
                 for p in posts.reversed(){
                     self.posts.insert(p, at: 0)
                 }
+                self.posts = self.posts.sorted(by: { $0.getDateFromString().compare($1.getDateFromString()) == .orderedAscending })
+
                 self.feedTableView.reloadData()
             })
             postsLoaded = true

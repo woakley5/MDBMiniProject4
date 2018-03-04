@@ -14,4 +14,8 @@ extension UIColor {
     static let MDBBlue: UIColor! = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1).flatten()
 }
 
+class Constants {
+    static let dateFormat = "yyyy-MM-dd"
+}
+
 

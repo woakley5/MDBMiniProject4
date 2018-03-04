@@ -33,7 +33,7 @@ class FirebaseDatabaseHelper {
                 print(downloadURL)
                 let posterId = FirebaseAuthHelper.getCurrentUser()?.uid
                 let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "MMM d, h:mm a"
+                dateFormatter.dateFormat = Constants.dateFormat
                 let dateString = dateFormatter.string(from: date)
                 let postsRef = Database.database().reference().child("Posts")
                 let key = postsRef.childByAutoId().key

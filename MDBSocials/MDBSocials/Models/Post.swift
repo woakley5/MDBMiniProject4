@@ -14,7 +14,7 @@ import Haneke
 import PromiseKit
 
 class Post: Mappable {
-    var date: String?
+    var dateString: String?
     var description: String?
     var eventName: String?
     var imageUrl: String?
@@ -32,7 +32,7 @@ class Post: Mappable {
     }
     
     func mapping(map: Map) {
-        date                       <- map["date"]
+        dateString                 <- map["date"]
         description                <- map["description"]
         eventName                  <- map["name"]
         imageUrl                   <- map["pictureURL"]
@@ -62,6 +62,12 @@ class Post: Mappable {
         else{
             self.interestedUserIds!.append(userID)
         }
+    }
+    
+    func getDateFromString() -> Date{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = Constants.dateFormat
+        return dateFormatter.date(from: dateString!)!
     }
     
     func getPicture() -> Promise<Bool> {

@@ -119,7 +119,7 @@ class NewSocialView: UIView {
         selectLibraryImageButton.addTarget(self, action: #selector(selectPictureFromLibrary), for: .touchUpInside)
         secondBlockView.addSubview(selectLibraryImageButton)
         
-        selectLocationButton = UIButton(frame: CGRect(x: secondBlockView.frame.width/2 + 20, y: 120, width: secondBlockView.frame.width/2 - 40, height: 40))
+        selectLocationButton = UIButton(frame: CGRect(x: secondBlockView.frame.width/2 + 20, y: 130, width: secondBlockView.frame.width/2 - 40, height: 40))
         selectLocationButton.setTitle("Select Location", for: .normal)
         selectLocationButton.layer.cornerRadius = 10
         selectLocationButton.backgroundColor = .white

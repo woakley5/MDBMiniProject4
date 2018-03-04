@@ -14,6 +14,7 @@ class DetailView: UIView {
     var firstBlockView: UIView!
     var mainImageView: UIImageView!
     var mapView: MKMapView!
+    var getDirectionsButton: UIButton!
     
     var secondBlockView: UIView!
     var descriptionLabel: UILabel!
@@ -59,11 +60,22 @@ class DetailView: UIView {
         mainImageView.layer.masksToBounds = true
         firstBlockView.addSubview(mainImageView)
         
-        mapView = MKMapView(frame: CGRect(x: firstBlockView.frame.width/2 + 10, y: 10, width: firstBlockView.frame.width/2 - 20, height: firstBlockView.frame.height - 20))
+        mapView = MKMapView(frame: CGRect(x: firstBlockView.frame.width/2 + 10, y: 10, width: firstBlockView.frame.width/2 - 20, height: firstBlockView.frame.height - 70))
         mapView.mapType = .standard
         mapView.layer.cornerRadius = 10
         mapView.layer.masksToBounds = true
         firstBlockView.addSubview(mapView)
+        
+        let height = firstBlockView.frame.height - 30 - mapView.frame.height
+        
+        getDirectionsButton = UIButton(frame: CGRect(x: firstBlockView.frame.width/2 + 10, y: firstBlockView.frame.height - height - 10, width: firstBlockView.frame.width/2 - 20, height: height))
+        getDirectionsButton.addTarget(self, action: #selector(getDirections), for: .touchUpInside)
+        getDirectionsButton.layer.cornerRadius = 10
+        getDirectionsButton.setTitle("Get Directions", for: .normal)
+        getDirectionsButton.setTitleColor(.MDBBlue, for: .normal)
+        getDirectionsButton.backgroundColor = .white
+        getDirectionsButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        firstBlockView.addSubview(getDirectionsButton)
     }
     
     func setupSecondBlock(){
@@ -197,6 +209,12 @@ class DetailView: UIView {
             //post.interestedUserDictionary.append(["": ])
             self.interestedLabel.text = "Members Interested: " + String(describing: self.viewController.post.getInterestedUserIds().count)
         }
+    }
+    
+    @objc func getDirections(){
+        let urlString = "http://maps.apple.com/?saddr=&daddr=\(viewController.post.latitude!),\(viewController.post.longitude!)"
+        let url = URL(string: urlString)
+        UIApplication.shared.open(url!)
     }
     
     @objc func tappedViewInterested(){
