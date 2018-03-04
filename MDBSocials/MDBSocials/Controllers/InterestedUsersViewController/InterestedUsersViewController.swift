@@ -29,15 +29,21 @@ class InterestedUsersViewController: UIViewController {
         view.addSubview(tableView)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        for u in userIDArray!{
-            print("Getting User")
-            FirebaseDatabaseHelper.getUserWithId(id: u).then {user in
-                self.usersArray.append(user)
-                }.then {
-                    self.tableView.reloadData()
+    func getUsers(){
+        if userIDArray != nil {
+            for u in userIDArray!{
+                print("Getting User")
+                FirebaseDatabaseHelper.getUserWithId(id: u).then {user in
+                    self.usersArray.append(user)
+                    }.then {
+                        self.tableView.reloadData()
+                }
             }
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getUsers()
     }
 }
 

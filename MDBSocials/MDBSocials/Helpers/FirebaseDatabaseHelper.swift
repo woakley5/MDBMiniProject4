@@ -13,12 +13,13 @@ import MKSpinner
 import ObjectMapper
 import SwiftyJSON
 import PromiseKit
+import CoreLocation
 
 class FirebaseDatabaseHelper {
     
     static var postsRef = Database.database().reference()
     
-    static func newPostWithImage(selectedImage: UIImage, name: String, description: String, date: Date) -> Promise<Bool>{
+    static func newPostWithImage(selectedImage: UIImage, name: String, description: String, date: Date, location: CLLocationCoordinate2D) -> Promise<Bool>{
         return Promise { fulfill, error in
             let data = UIImagePNGRepresentation(selectedImage)!
             let imageRef = Storage.storage().reference().child("postImages/" + name.trimmingCharacters(in: .whitespaces) + ".png")
@@ -36,7 +37,7 @@ class FirebaseDatabaseHelper {
                 let dateString = dateFormatter.string(from: date)
                 let postsRef = Database.database().reference().child("Posts")
                 let key = postsRef.childByAutoId().key
-                let newPost = ["postId": key,"name": name, "pictureURL": downloadURL, "posterId": posterId!, "description": description, "date": dateString] as [String : Any]
+                let newPost = ["postId": key,"name": name, "pictureURL": downloadURL, "posterId": posterId!, "description": description, "date": dateString, "latitude": location.latitude, "longitude": location.longitude] as [String : Any]
                 let childUpdates = ["/\(key)/": newPost]
                 postsRef.updateChildValues(childUpdates)
                 print("Post created!")

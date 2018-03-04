@@ -157,6 +157,13 @@ class DetailView: UIView {
         posterNameLabel.text = "Posted By: " + viewController.post.posterName!
     }
     
+    func addAnnotationToMap(){
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = CLLocationCoordinate2D(latitude: viewController.post.latitude!, longitude: viewController.post.longitude!)
+        mapView.addAnnotation(annotation)
+        mapView.setRegion(MKCoordinateRegionMake(annotation.coordinate, MKCoordinateSpanMake(0.001, 0.001)), animated: true)
+    }
+    
     func setInterestedButtonState(){
         var userHasSaidInterested = false
         for id in viewController.post.getInterestedUserIds() {

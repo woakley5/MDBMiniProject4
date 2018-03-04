@@ -38,6 +38,7 @@ class DetailViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         mainView.queryLyft()
+        mainView.addAnnotationToMap()
     }
 
     

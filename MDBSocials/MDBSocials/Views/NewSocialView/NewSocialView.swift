@@ -119,7 +119,7 @@ class NewSocialView: UIView {
         selectLibraryImageButton.addTarget(self, action: #selector(selectPictureFromLibrary), for: .touchUpInside)
         secondBlockView.addSubview(selectLibraryImageButton)
         
-        selectLocationButton = UIButton(frame: CGRect(x: secondBlockView.frame.width/2 + 20, y: 150, width: secondBlockView.frame.width/2 - 40, height: 40))
+        selectLocationButton = UIButton(frame: CGRect(x: secondBlockView.frame.width/2 + 20, y: 120, width: secondBlockView.frame.width/2 - 40, height: 40))
         selectLocationButton.setTitle("Select Location", for: .normal)
         selectLocationButton.layer.cornerRadius = 10
         selectLocationButton.backgroundColor = .white
@@ -147,7 +147,7 @@ class NewSocialView: UIView {
     @objc func newPost() {
         if eventNameField.hasText && eventDescriptionField.hasText && selectedImage != nil && selectedLocation != nil {
             MKFullSpinner.show("Uploading Post", animated: true)
-            FirebaseDatabaseHelper.newPostWithImage(selectedImage: selectedImage, name: eventNameField.text!, description: eventDescriptionField.text!, date: datePicker.date).then { success -> Void in
+            FirebaseDatabaseHelper.newPostWithImage(selectedImage: selectedImage, name: eventNameField.text!, description: eventDescriptionField.text!, date: datePicker.date, location: selectedLocation).then { success -> Void in
                 MKFullSpinner.hide()
                 self.viewController.dismiss(animated: true, completion: {
                     print("Post Complete")
