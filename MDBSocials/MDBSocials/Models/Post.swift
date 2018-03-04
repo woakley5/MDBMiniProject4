@@ -11,6 +11,7 @@ import FirebaseDatabase
 import FirebaseStorage
 import ObjectMapper
 import Haneke
+import PromiseKit
 
 class Post: Mappable {
     var date: String?
@@ -63,16 +64,15 @@ class Post: Mappable {
         }
     }
     
-    func getPicture(withBlock: @escaping () -> ()) {
-        if self.image == nil {
-            let urlReference = Storage.storage().reference(forURL: imageUrl!)
-            urlReference.getData(maxSize: 30 * 1024 * 1024) { data, error in
-                if let error = error {
-                    print("Error getting image")
-                    print(error.localizedDescription)
-                } else {
-                    self.image = UIImage(data: data!)
-                    withBlock()
+    func getPicture() -> Promise<Bool> {
+        return Promise { fufill, _ in
+            if self.image == nil {
+                let cache = Shared.imageCache
+                if let url = URL(string: self.imageUrl!){
+                    cache.fetch(URL: url).onSuccess({ img in
+                        self.image = img
+                        fufill(true)
+                    })
                 }
             }
         }

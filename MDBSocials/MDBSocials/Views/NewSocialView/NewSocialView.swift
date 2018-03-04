@@ -9,6 +9,8 @@
 import UIKit
 import SkyFloatingLabelTextField
 import MKSpinner
+import CoreLocation
+import LocationPicker
 
 class NewSocialView: UIView {
 
@@ -19,6 +21,7 @@ class NewSocialView: UIView {
     var secondBlockView: UIView!
     var selectLibraryImageButton: UIButton!
     var selectCameraImageButton: UIButton!
+    var selectLocationButton: UIButton!
     var selectedImageView: UIImageView!
     
     var thirdBlockView: UIView!
@@ -27,6 +30,8 @@ class NewSocialView: UIView {
     var submitButton: UIButton!
     
     var selectedImage: UIImage!
+    var selectedLocation: CLLocationCoordinate2D!
+    
     var viewController: UIViewController!
     
     init(frame: CGRect, controller: UIViewController){
@@ -98,7 +103,7 @@ class NewSocialView: UIView {
         secondBlockView.layer.cornerRadius = 10
         self.addSubview(secondBlockView)
         
-        selectCameraImageButton = UIButton(frame: CGRect(x: secondBlockView.frame.width/2 + 20, y: 30, width: secondBlockView.frame.width/2 - 40, height: 50))
+        selectCameraImageButton = UIButton(frame: CGRect(x: secondBlockView.frame.width/2 + 20, y: 30, width: secondBlockView.frame.width/2 - 40, height: 40))
         selectCameraImageButton.setTitle("Take Picture", for: .normal)
         selectCameraImageButton.backgroundColor = .white
         selectCameraImageButton.layer.cornerRadius = 10
@@ -106,13 +111,21 @@ class NewSocialView: UIView {
         selectCameraImageButton.addTarget(self, action: #selector(selectPictureFromCamera), for: .touchUpInside)
         secondBlockView.addSubview(selectCameraImageButton)
         
-        selectLibraryImageButton = UIButton(frame: CGRect(x: secondBlockView.frame.width/2 + 20, y: 120, width: secondBlockView.frame.width/2 - 40, height: 50))
+        selectLibraryImageButton = UIButton(frame: CGRect(x: secondBlockView.frame.width/2 + 20, y: 80, width: secondBlockView.frame.width/2 - 40, height: 40))
         selectLibraryImageButton.setTitle("Select Picture", for: .normal)
         selectLibraryImageButton.layer.cornerRadius = 10
         selectLibraryImageButton.backgroundColor = .white
         selectLibraryImageButton.setTitleColor(.MDBBlue, for: .normal)
         selectLibraryImageButton.addTarget(self, action: #selector(selectPictureFromLibrary), for: .touchUpInside)
         secondBlockView.addSubview(selectLibraryImageButton)
+        
+        selectLocationButton = UIButton(frame: CGRect(x: secondBlockView.frame.width/2 + 20, y: 150, width: secondBlockView.frame.width/2 - 40, height: 40))
+        selectLocationButton.setTitle("Select Location", for: .normal)
+        selectLocationButton.layer.cornerRadius = 10
+        selectLocationButton.backgroundColor = .white
+        selectLocationButton.setTitleColor(.MDBBlue, for: .normal)
+        selectLocationButton.addTarget(self, action: #selector(selectLocation), for: .touchUpInside)
+        secondBlockView.addSubview(selectLocationButton)
         
         selectedImageView = UIImageView(frame: CGRect(x: 10, y: 10, width: secondBlockView.frame.width/2 - 20, height: secondBlockView.frame.height - 20))
         selectedImageView.contentMode = .scaleAspectFit
@@ -132,7 +145,7 @@ class NewSocialView: UIView {
     }
     
     @objc func newPost() {
-        if eventNameField.hasText && eventDescriptionField.hasText && selectedImage != nil {
+        if eventNameField.hasText && eventDescriptionField.hasText && selectedImage != nil && selectedLocation != nil {
             MKFullSpinner.show("Uploading Post", animated: true)
             FirebaseDatabaseHelper.newPostWithImage(selectedImage: selectedImage, name: eventNameField.text!, description: eventDescriptionField.text!, date: datePicker.date).then { success -> Void in
                 MKFullSpinner.hide()
@@ -163,6 +176,24 @@ class NewSocialView: UIView {
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .camera
         viewController.present(imagePicker, animated: true, completion: nil)
+    }
+    
+    @objc func selectLocation() {
+        let locationPicker = LocationPickerViewController()
+        
+        locationPicker.showCurrentLocationButton = true
+        locationPicker.currentLocationButtonBackground = .MDBBlue
+        locationPicker.showCurrentLocationInitially = true
+        locationPicker.mapType = .standard
+        locationPicker.useCurrentLocationAsHint = true
+        locationPicker.resultRegionDistance = 500
+        locationPicker.completion = { location in
+            self.selectedLocation = location?.coordinate
+        }
+        
+        viewController.present(locationPicker, animated: true) {
+            print("Selecting location")
+        }
     }
     
     @objc func cancelNewPost() {

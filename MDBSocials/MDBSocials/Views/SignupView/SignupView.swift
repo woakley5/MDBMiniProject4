@@ -27,6 +27,7 @@ class SignupView: UIView {
     
     init(frame: CGRect, controller: SignupViewController){
         super.init(frame: frame)
+        viewController = controller
         setupTitleLabel()
         setupFullNameField()
         setupUsernameField()
@@ -75,6 +76,7 @@ class SignupView: UIView {
         passwordField = YellowFloatingTextField(frame: CGRect(x: 30, y: 275, width: self.frame.width - 60, height: 40))
         passwordField.placeholder = "Password"
         passwordField.title = "Password"
+        passwordField.isSecureTextEntry = true
         self.addSubview(passwordField)
     }
     
@@ -95,7 +97,7 @@ class SignupView: UIView {
         selectLibraryImageButton.addTarget(self, action: #selector(selectPictureFromLibrary), for: .touchUpInside)
         self.addSubview(selectLibraryImageButton)
         
-        selectedImageView = UIImageView(frame: CGRect(x: 10, y: 350, width: self.frame.width/2 - 20, height: 130))
+        selectedImageView = UIImageView(frame: CGRect(x: 10, y: 350, width: self.frame.width/2 - 20, height: 110))
         selectedImageView.contentMode = .scaleAspectFit
         selectedImageView.layer.cornerRadius = 10
         selectedImageView.image = #imageLiteral(resourceName: "defaultImage")
@@ -158,7 +160,7 @@ class SignupView: UIView {
             print("Fields Missing")
             let alertController = UIAlertController(title: "Fields Blank", message:
                 "Make sure you enter all required information.", preferredStyle: UIAlertControllerStyle.alert)
-            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
             viewController.present(alertController, animated: true, completion: nil)
         }
     }

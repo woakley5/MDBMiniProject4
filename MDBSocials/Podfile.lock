@@ -49,6 +49,7 @@ PODS:
   - GTMSessionFetcher/Core (1.1.12)
   - HanekeSwift (0.10.1)
   - leveldb-library (1.20)
+  - LocationPicker (1.0.3)
   - LyftSDK/API (1.0.6)
   - MKSpinner (1.4)
   - nanopb (0.3.8):
@@ -79,6 +80,7 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Storage
   - HanekeSwift (from `https://github.com/Haneke/HanekeSwift.git`, branch `feature/swift-3`)
+  - LocationPicker
   - LyftSDK/API
   - MKSpinner
   - ObjectMapper
@@ -110,6 +112,7 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: ebaa1f79a5366922c1735f1566901f50beba23b7
   HanekeSwift: 4113367892828e7700d24a384027de6ebc79aad1
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
+  LocationPicker: d54d59c9d14d52496e3e8167e67f13440d6bcf1e
   LyftSDK: 17eb5abdb12f72203b68a1eac982823bfadda743
   MKSpinner: 342cc7f8fbb365dd139a8ad28a0a987cca440a3a
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
@@ -118,6 +121,6 @@ SPEC CHECKSUMS:
   SkyFloatingLabelTextField: 703aa1420b697392b1e7dba25571180dde018477
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: 82fd0201f18cf14168d4bd31d3e6294d508de4b4
+PODFILE CHECKSUM: ec789569441c9e7013b56b9d3612422251ec6c92
 
 COCOAPODS: 1.4.0

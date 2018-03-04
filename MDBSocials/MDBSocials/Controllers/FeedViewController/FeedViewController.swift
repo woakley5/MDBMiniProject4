@@ -102,7 +102,7 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
         cell.awakeFromNib()
         cell.startLoadingView()
         if post.image == nil {
-            post.getPicture {
+            post.getPicture().then { success -> Void in
                 cell.mainImageView.image = post.image
                 cell.stopLoadingView()
             }
