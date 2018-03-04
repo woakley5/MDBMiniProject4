@@ -18,14 +18,13 @@ class FeedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigationBar()
         setupTableView()
     }
-    
+        
     func setupNavigationBar(){
-        self.navigationItem.title = "My Feed"
-        self.navigationController?.navigationBar.tintColor = .white
-        self.navigationController?.navigationBar.barTintColor = .MDBBlue
+        self.tabBarController?.navigationItem.title = "My Feed"
+        self.tabBarController?.navigationController?.navigationBar.tintColor = .white
+        self.tabBarController?.navigationController?.navigationBar.barTintColor = .MDBBlue
         let textAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         
@@ -33,9 +32,9 @@ class FeedViewController: UIViewController {
         logoutButton.setTitle("Log Out", for: .normal)
         logoutButton.setTitleColor(.white, for: .normal)
         logoutButton.addTarget(self, action: #selector(logOut), for: .touchUpInside)
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: logoutButton)
+        self.tabBarController?.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: logoutButton)
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(newPost))
+        self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(newPost))
     }
     
     func setupTableView(){
@@ -48,6 +47,7 @@ class FeedViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        setupNavigationBar()
         if !FirebaseAuthHelper.isLoggedIn() {
             postsLoaded = false
             self.performSegue(withIdentifier: "showLogin", sender: self)
@@ -146,6 +146,6 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedPost = posts[indexPath.row]
-        self.performSegue(withIdentifier: "showSocialDetail", sender: self)
+        self.performSegue(withIdentifier: "showSocialDetailFromMain", sender: self)
     }
 }
