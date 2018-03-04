@@ -55,17 +55,28 @@ class FeedViewController: UIViewController {
         else if !postsLoaded{
             posts.removeAll()
             FirebaseDatabaseHelper.fetchPosts(withBlock: { posts in
-                for p in posts.reversed(){
-                    self.posts.insert(p, at: 0)
+                for p in posts{
+                    if !(p.getDateFromString().timeIntervalSinceNow < 0) {
+                        self.posts.insert(p, at: 0)
+                    }
                 }
                 self.posts = self.posts.sorted(by: { $0.getDateFromString().compare($1.getDateFromString()) == .orderedAscending })
-
+                
                 self.feedTableView.reloadData()
             })
+            
             postsLoaded = true
         }
         else{
             self.feedTableView.reloadData()
+        }
+        let myEventsViewController = self.tabBarController!.viewControllers![1] as! MyEventsViewController
+        myEventsViewController.posts.removeAll()
+        let userID = FirebaseAuthHelper.getCurrentUser()!.uid
+        for p in self.posts {
+            if p.posterId == userID || p.getInterestedUserIds().contains(userID) {
+                myEventsViewController.posts.append(p)
+            }
         }
     }
     

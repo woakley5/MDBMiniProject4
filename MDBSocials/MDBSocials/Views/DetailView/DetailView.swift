@@ -206,7 +206,6 @@ class DetailView: UIView {
             self.imInterestedButton.setTitleColor(.darkGray, for: .normal)
             self.imInterestedButton.isUserInteractionEnabled = false
             self.viewController.post.addInterestedUser(userID: (FirebaseAuthHelper.getCurrentUser()?.uid)!)
-            //post.interestedUserDictionary.append(["": ])
             self.interestedLabel.text = "Members Interested: " + String(describing: self.viewController.post.getInterestedUserIds().count)
         }
     }

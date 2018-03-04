@@ -22,6 +22,7 @@ class MyEventsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         setupNavigationBar()
+        eventsTableView.reloadData()
     }
     
     func setupNavigationBar(){

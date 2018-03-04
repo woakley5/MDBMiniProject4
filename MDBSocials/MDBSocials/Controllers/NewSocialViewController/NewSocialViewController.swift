@@ -22,8 +22,6 @@ class NewSocialViewController: UIViewController {
         
         mainView = NewSocialView(frame: view.frame, controller: self)
         view.addSubview(mainView)
-        
-        
     }
     
     @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {

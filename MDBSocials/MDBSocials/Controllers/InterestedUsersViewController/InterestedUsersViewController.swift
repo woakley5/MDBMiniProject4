@@ -73,6 +73,7 @@ extension InterestedUsersViewController: UITableViewDelegate, UITableViewDataSou
                 }
             }
         }
+        cell.isUserInteractionEnabled = false
         return cell
     }
     
