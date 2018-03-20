@@ -22,6 +22,7 @@ target 'MDBSocials' do
   pod 'HanekeSwift', :git => 'https://github.com/Haneke/HanekeSwift.git', :branch => 'feature/swift-3'
   pod 'LyftSDK/API'
   pod 'LocationPicker'
+  pod 'Spring'
 
   
   target 'MDBSocialsTests' do

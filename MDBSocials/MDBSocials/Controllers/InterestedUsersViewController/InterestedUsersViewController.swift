@@ -48,7 +48,7 @@ class InterestedUsersViewController: UIViewController {
 }
 
 extension InterestedUsersViewController: UITableViewDelegate, UITableViewDataSource {
-
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -82,3 +82,5 @@ extension InterestedUsersViewController: UITableViewDelegate, UITableViewDataSou
     }
     
 }
+
+
